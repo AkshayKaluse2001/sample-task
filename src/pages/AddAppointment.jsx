@@ -73,44 +73,44 @@ const AddAppointment = () => {
     setGender("");
   };
 
-  // const bookAppointment = (e) => {
-  //   e.preventDefault();
-  //   const appointment = {
-  //     id: v4(),
-  //     name: name,
-  //     consultantPerson: consultantPerson,
-  //     date: date,
-  //     time: time,
-  //     gender: gender,
-  //   };
-  //   dispatch(addAppointments(appointment));
+  const bookAppointment = (e) => {
+    e.preventDefault();
+    const appointment = {
+      id: v4(),
+      name: name,
+      consultantPerson: consultantPerson,
+      date: date,
+      time: time,
+      gender: gender,
+    };
+    dispatch(AddAppointment(appointment));
 
-  //   navigate("/appointments");
-  //   clearInputs();
-  // };
+    navigate("/appointments");
+    clearInputs();
+  };
 
-  // const LoadAppointment = (appointment) => {
-  //   setId(appointment.id);
-  //   setName(appointment.name);
-  //   setConsultantPerson(appointment.consultantPerson);
-  //   setDate(appointment.date);
-  //   setTime(appointment.time);
-  //   setGender(appointment.gender);
-  // };
+  const LoadAppointment = (appointment) => {
+    setId(appointment.id);
+    setName(appointment.name);
+    setConsultantPerson(appointment.consultantPerson);
+    setDate(appointment.date);
+    setTime(appointment.time);
+    setGender(appointment.gender);
+  };
 
-  // const updateAppointment = (appointId) => {
-  //   const user = {
-  //     name,
-  //     consultantPerson,
-  //     date,
-  //     time,
-  //     gender,
-  //   };
-  //   const index = appointments.findIndex((appointment) => {
-  //     return appointment.id === appointId.id;
-  //   });
-  //   dispatch(UpdateAppointment(index, user));
-  // };
+  const updateAppointment = (appointId) => {
+    const user = {
+      name,
+      consultantPerson,
+      date,
+      time,
+      gender,
+    };
+    const index = appointments.findIndex((appointment) => {
+      return appointment.id === appointId.id;
+    });
+    dispatch(UpdateAppointment(index, user));
+  };
 
   return (
     <div style={{ display: "flex", height: "100vh" }}>
@@ -257,11 +257,11 @@ const AddAppointment = () => {
                     </div>
                     <button
                       className="btn btn-primary float-end"
-                      // onClick={(e) => {
-                      //   return id === null
-                      //     ? bookAppointment(e)
-                      //     : updateAppointment(appointment);
-                      // }}
+                      onClick={(e) => {
+                        return id === null
+                          ? bookAppointment(e)
+                          : updateAppointment(appointment);
+                      }}
                       disabled={isDisabled()}
                     >
                       {id === null ? "Submit" : "Update"}
